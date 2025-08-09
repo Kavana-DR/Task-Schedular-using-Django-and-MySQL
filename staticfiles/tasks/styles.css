@@ -1,0 +1,87 @@
+/* === Base Styles === */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d7dfe7; /* Dark mode background */
+    color: #ca4f4f; /* Light text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Buttons */
+button, .btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6b6b, #f94d6a);
+    color: white;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+button:hover, .btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #f94d6a, #ff6b6b);
+}
+
+/* Colorful Task Cards */
+.task-card {
+    background-color: #1e1e1e;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Random colors for cards */
+.task-card:nth-child(1n) { border-left: 6px solid #ff6b6b; }
+.task-card:nth-child(2n) { border-left: 6px solid #6bff95; }
+.task-card:nth-child(3n) { border-left: 6px solid #6bcaff; }
+.task-card:nth-child(4n) { border-left: 6px solid #f3ff6b; }
+
+.task-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+}
+
+/* Form Styling */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: white;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ff6b6b;
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    button, .btn {
+        width: 100%;
+        padding: 12px;
+    }
+    .task-card {
+        margin: 10px 0;
+    }
+}

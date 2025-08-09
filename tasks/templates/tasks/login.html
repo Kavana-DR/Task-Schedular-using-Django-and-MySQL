@@ -1,0 +1,13 @@
+{% extends 'tasks/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<h3 class="mb-4">🔐 Login</h3>
+<form method="post" class="shadow p-4 bg-light rounded">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">Login</button>
+    <a href="{% url 'register' %}" class="btn btn-link">Don't have an account?</a>
+</form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}My Tasks{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">📝 My Tasks</h2>
+<a href="{% url 'add_task' %}" class="btn btn-success mb-4">➕ Add New Task</a>
+
+{% if tasks %}
+<div class="row">
+    {% for task in tasks %}
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ task.title }}</h5>
+                <p class="card-text">{{ task.description }}</p>
+                <p><strong>Due:</strong> {{ task.due_date }}</p>
+                <p>
+                    {% if task.is_completed %}
+                        <span class="badge bg-success">✅ Completed</span>
+                    {% else %}
+                        <span class="badge bg-warning text-dark">⌛ Pending</span>
+                    {% endif %}
+                </p>
+                <a href="{% url 'toggle_task_status' task.id %}" class="btn btn-sm btn-outline-primary">Toggle Status</a>
+                <a href="{% url 'edit_task' task.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                <a href="{% url 'delete_task' task.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+    <p class="text-center">You have no tasks yet.</p>
+{% endif %}
+{% endblock %}
