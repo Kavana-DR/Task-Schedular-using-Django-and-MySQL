@@ -4,10 +4,23 @@
 
 {% block content %}
 <h3 class="mb-4">🔐 Login</h3>
-<form method="post" class="shadow p-4 bg-light rounded">
+
+<form method="post" class="shadow p-4 bg-white rounded" style="max-width: 500px; margin:auto;" autocomplete="off">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-primary">Login</button>
-    <a href="{% url 'register' %}" class="btn btn-link">Don't have an account?</a>
+
+    <div class="form-group mb-3">
+        <label for="id_username" class="form-label">Username</label>
+        <input type="text" name="username" id="id_username" class="form-control" placeholder="Enter username" value="" autocomplete="off" required>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="id_password" class="form-label">Password</label>
+        <input type="password" name="password" id="id_password" class="form-control" placeholder="Enter password" value="" autocomplete="new-password" required>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a href="{% url 'register' %}" class="btn btn-link">Don't have an account?</a>
+    </div>
 </form>
 {% endblock %}
